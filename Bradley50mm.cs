@@ -177,7 +177,13 @@ namespace Bradley50mm
                 optic.transform.GetChild(2).transform.localPosition = new Vector3(2.8227f, 2.7418f, 0f);
                 night_optic.transform.GetChild(2).transform.localPosition = new Vector3(2.8227f, 2.7418f, 0f);
                 night_optic.transform.GetChild(1).GetChild(1).transform.localPosition = new Vector3(2.8227f, 2.7418f, 0f);
-                            
+
+                CameraSlot flirPlus = night_optic.GetComponent<CameraSlot>();
+                flirPlus.FLIRFilterMode = FilterMode.Trilinear;
+                flirPlus.FLIRHeight = 360;
+                flirPlus.FLIRWidth = 720;
+                flirPlus.VibrationShakeMultiplier = 0.175f;
+    
                 var lock_text = GameObject.Instantiate(optic.transform.GetChild(3).GetChild(2).GetChild(1).gameObject);
                 lock_text.AddComponent<Reparent>();
                 lock_text.GetComponent<Reparent>().NewParent = optic.transform.GetChild(3).GetChild(2).GetChild(1).transform;
