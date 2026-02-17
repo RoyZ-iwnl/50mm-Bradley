@@ -8,6 +8,7 @@ using GHPC.Equipment.Optics;
 using GHPC.Player;
 using GHPC.Vehicle;
 using GHPC.Weapons;
+using GHPC.Weaponry;
 using MelonLoader;
 using UnityEngine;
 using GHPC.Effects;
@@ -34,7 +35,7 @@ namespace Bradley50mm
         public MissileGuidanceUnit Unit { get; set; }
     }
 
-    public class Bradley50mm 
+    public class Bradley50mm
     {
         static WeaponSystemCodexScriptable gun_xm913;
 
@@ -387,7 +388,7 @@ namespace Bradley50mm
                 if (__instance.CurrentAmmoType.Name != "BGM-71C I-TOW-FF") return; 
 
                 float num = -1f;
-                int layerMask = 1 << CodeUtils.LAYER_MASK_VISIBILITYONLY;
+                int layerMask = 1 << CodeUtils.LAYER_INDEX_VISIBILITYONLY;
                 RaycastHit raycastHit;
                 if (Physics.Raycast(__instance.LaserOrigin.position, __instance.LaserOrigin.forward, out raycastHit, __instance.MaxLaserRange, layerMask) && raycastHit.collider.tag == "Smoke")
                 {
@@ -426,7 +427,7 @@ namespace Bradley50mm
                 if ((__args[0] as GHPC.AI.Interfaces.ITarget).Owner == null) return;
                 if (__instance.Unit.FriendlyName != "M2(50) Bradley") return;
 
-                WeaponSystemInfo weapon_system_info = __instance.UCI.GunnerBrain.ActiveWeapon;
+                WeaponSystemInfo weapon_system_info = __instance.UCI.GunnerBrain.WeaponsModule.ActiveWeapon;
 
                 if (weapon_system_info == null) return; 
 
