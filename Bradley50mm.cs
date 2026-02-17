@@ -177,7 +177,7 @@ namespace Bradley50mm
                 optic.transform.GetChild(2).transform.localPosition = new Vector3(2.8227f, 2.7418f, 0f);
                 night_optic.transform.GetChild(2).transform.localPosition = new Vector3(2.8227f, 2.7418f, 0f);
                 night_optic.transform.GetChild(1).GetChild(1).transform.localPosition = new Vector3(2.8227f, 2.7418f, 0f);
-
+                            
                 var lock_text = GameObject.Instantiate(optic.transform.GetChild(3).GetChild(2).GetChild(1).gameObject);
                 lock_text.AddComponent<Reparent>();
                 lock_text.GetComponent<Reparent>().NewParent = optic.transform.GetChild(3).GetChild(2).GetChild(1).transform;
@@ -219,7 +219,7 @@ namespace Bradley50mm
                     towRack.StoredClips[i] = clip_TOW_FF;
                 }
 
-                loadoutManager.LoadedAmmoTypes = new AmmoClipCodexScriptable[] {clip_codex_xm1023, clip_codex_xm1024};
+                loadoutManager.LoadedAmmoList.AmmoClips = new AmmoClipCodexScriptable[] {clip_codex_xm1023, clip_codex_xm1024};
 
                 for (int i = 0; i <= 1; i++)
                 {
@@ -262,7 +262,7 @@ namespace Bradley50mm
                 gun_xm913.FriendlyName = "50mm cannon M913";
                 gun_xm913.Type = WeaponSystemCodexScriptable.WeaponType.Autocannon;
 
-                // xm1023 
+                // xm1023
                 ammo_xm1023 = new AmmoType();
                 Util.ShallowCopy(ammo_xm1023, ammo_m791);
                 ammo_xm1023.Name = "M1023 APFSDS-T";
@@ -271,6 +271,7 @@ namespace Bradley50mm
                 ammo_xm1023.MuzzleVelocity = 1522f;
                 ammo_xm1023.VisualType = LiveRoundMarshaller.LiveRoundVisualType.Shell;
                 ammo_xm1023.Mass = 0.550f;
+                ammo_xm1023.CachedIndex = -1;
 
                 ammo_codex_xm1023 = ScriptableObject.CreateInstance<AmmoCodexScriptable>();
                 ammo_codex_xm1023.AmmoType = ammo_xm1023;
@@ -301,6 +302,7 @@ namespace Bradley50mm
                 ammo_xm1024.ImpactFuseTime = 0.005f;
                 ammo_xm1024.VisualType = LiveRoundMarshaller.LiveRoundVisualType.Shell;
                 ammo_xm1024.Mass = 0.750f;
+                ammo_xm1024.CachedIndex = -1;
 
                 ammo_codex_xm1024 = ScriptableObject.CreateInstance<AmmoCodexScriptable>();
                 ammo_codex_xm1024.AmmoType = ammo_xm1024;
@@ -337,6 +339,7 @@ namespace Bradley50mm
                 ammo_TOW_FF.EdgeSetback = 0.5f;
                 ammo_TOW_FF.Guidance = AmmoType.GuidanceType.Laser;
                 ammo_TOW_FF.Flight = AmmoType.FlightPattern.TopAttack;
+                ammo_TOW_FF.CachedIndex = -1;
 
                 ammo_codex_TOW_FF = ScriptableObject.CreateInstance<AmmoCodexScriptable>();
                 ammo_codex_TOW_FF.AmmoType = ammo_TOW_FF;
