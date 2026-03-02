@@ -125,7 +125,8 @@ namespace Bradley50mm
                 GameObject vic_go = vic.gameObject;
 
                 if (vic == null) continue;
-                if (vic.FriendlyName != "M2 Bradley") continue;
+                // 匹配 M2 Bradley 或 M2 Bradley(alt)
+                if (vic.FriendlyName != "M2 Bradley" && vic.FriendlyName != "M2 Bradley(alt)") continue;
 
                 vic._friendlyName = "M2(50) Bradley"; 
 
@@ -183,7 +184,7 @@ namespace Bradley50mm
                 flirPlus.FLIRHeight = 360;
                 flirPlus.FLIRWidth = 720;
                 flirPlus.VibrationShakeMultiplier = 0.175f;
-    
+
                 var lock_text = GameObject.Instantiate(optic.transform.GetChild(3).GetChild(2).GetChild(1).gameObject);
                 lock_text.AddComponent<Reparent>();
                 lock_text.GetComponent<Reparent>().NewParent = optic.transform.GetChild(3).GetChild(2).GetChild(1).transform;
